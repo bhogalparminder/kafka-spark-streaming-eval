@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+
+# Spark / Kafka runtime artifacts
+spark-warehouse/
+metastore_db/
+derby.log
+*.log
+
+# Spark checkpoint dirs (commonly under /tmp but also sometimes in repo)
+**/checkpoint*/
+**/spark_kafka_checkpoint*/
+**/.metadata
+**/.crc
+*.crc
+*_SUCCESS
+
+# Raw per-batch metrics dumps (these explode repo size)
+results/metrics/**
+*.csv
+
+
+# Raw experiment run folders (rate_*, kafka_partitions_*, etc.) - OPTIONAL:
+# If these contain tons of per-batch CSV files, keep them ignored:
+results/exp1/rate_*/**
+results/exp2/kafka_partitions_*/**
+results/exp2/kafka12_spark_local8/**
+results/exp3/recovery_test/**
+
+# But keep analysis scripts + paper-ready artifacts inside these ignored folders:
+!results/**/analysis/
+!results/**/analysis/**
+
+# Keep paper-ready outputs (plots + summary tables)
+!results/**/analysis/*.png
+!results/**/analysis/*.pdf
+!results/**/analysis/*summary*.csv
+!results/**/analysis/*summary*.txt
+!results/exp3_timestamps.txt
+
+
